@@ -1,0 +1,116 @@
+"---------------------------------------------------------------------------
+"--------------------		Bienveue		--------------------
+"---------------------------------------------------------------------------
+
+
+
+
+"---------------------------------------------------------------------------
+"---------------------		Add plugging		--------------------
+"---------------------------------------------------------------------------
+
+call plug#begin()	" adding plugging
+	
+	Plug 'vim-airline/vim-airline'			" status/tabline lean & Mean
+	Plug 'vim-airline/vim-airline-themes'		" This is the official theme repository for vim-airline
+	Plug 'tpope/vim-surround'			" mappings to easily delete, change and add such surroundings in pairs
+	Plug 'scrooloose/nerdtree'			" A file system explorer
+	Plug 'scrooloose/nerdcommenter'  		" Comment functions so powerful—no comment necessary.
+	Plug 'tpope/vim-fugitive'			" The best Git wrapper
+	Plug 'tomasiser/vim-code-dark'                  " A beautiful theme 
+	Plug 'gabrielelana/vim-markdown'		" included syntax highlighting and filetype plugins for Markdown 
+	Plug 'dhruvasagar/vim-table-mode'               " automatic table creator & formatter
+	Plug 'mattn/emmet-vim'				" emmet-vim is a vim plug-in which provides support for expanding abbreviations similar to emmet.
+	Plug 'yggdroot/indentline'			" a plugin for visually displaying indent levels in Vim
+	Plug 'ajh17/vimcompletesme'			" A super simple, super minimal, super light-weight tab-completion plugin for Vim.
+	Plug 'scrooloose/syntastic'             	" Syntastic is a syntax checking plugin for Vim 
+"       Plug 'majutsushi/tagbar' 			" provides an easy way to browse the tags of the current file and get an overview of its structure
+	Plug 'connorholyday/vim-snazzy'
+	Plug 'johngrib/vim-game-code-break'             " :VimGameCodeBreak to Start
+	Plug 'ctrlpvim/ctrlp.vim' 			" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+	Plug 'tpope/vim-repeat' 			" repeat.vim
+	Plug '907th/vim-auto-save' 			" AutoSave - automatically saves changes to disk without having to use :w
+	Plug 'raimondi/delimitmate' 			" This plug-in provides automatic closing of quotes, parenthesis, brackets
+	Plug 'ap/vim-css-color'      			"  A very fast, multi-syntax context-sensitive color name highlighter 
+
+
+call plug#end()		" end
+
+
+
+
+
+
+"---------------------------------------------------------------------------
+"---------------------          config                  --------------------
+"---------------------------------------------------------------------------
+
+	set number		" Display line numbers
+	syntax on 		" Activate syntactic coloring
+	set number relativenumber
+	set smartindent		" keep the indentation on a new line
+	set ruler		" show the cursor position
+	set autoindent
+	set t_co=256
+	set t_ut=
+	colorscheme snazzy 		 " codedark Tomorrow-Night theme
+	set nocompatible		" use the modern vim
+	set wrap			" display mode
+        set scrolloff=5                 "garder 4 lignes avant 
+	let g:airline#extensions#tabline#enabled = 1      	" Smarter tab line Automatically displays all buffers when there's only one tab open.
+	set mouse=a 			"active mouse
+	set omnifunc=syntaxcomplete#Complete  			" smart autocompletion for programs
+	set showcmd             	" show command
+	set undofile 			" Maintain undo histoty between	sessions
+	set undodir=~/.vim/undodir  	" Save folder undo history
+	"let g:auto_save=1 		" Make the vim-auto-save plugin functional
+
+
+
+
+
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+
+"---------------------------------------------------------------------------
+"---------------------         mapping                  --------------------
+"---------------------------------------------------------------------------
+
+
+map <F9> :NERDTreeToggle<CR>
+
+" désactivation (redirection de la fonction) des touches de direction
+map <right> <esc>
+map <left> <esc>
+map <up> <esc>
+map <down> <esc>
+
+imap <right> <esc>
+imap <left> <esc>
+imap <up> <esc>
+imap <down> <esc> 
+
+"à chaque fois que j' appuie 2x  de suite sur , cela fera ESC
+imap ,, <esc>
+
+
+"---------------------------------------------------------------------------
+"--------------- 		shortcuts 	----------------------------
+"--------------------------------------------------------------------------
+
+nmap <C-n> :bn<CR>
+nmap <C-b> :bp<CR>
+" nmap <F8> :TagbarToggle<CR>
+
+
+
+
+inoremap ( ()<left> 		" Close the parenthesis and place the cursor between the two
+
+
+
